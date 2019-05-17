@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
- resources :instruments do
-    resources :bookings, only: [:index, :create]
-    resources :reviews, only: [:index, :create]
+  resources :instruments do
+    resources :bookings, only: [:create, :new]
+  end
+  resources :bookings, except: [:create, :new] do
+    resources :reviews, only: [:index, :show, :create, :new]
   end
 
   devise_for :users
