@@ -18,7 +18,20 @@ class InstrumentsController < ApplicationController
 
   def show
     @instrument = Instrument.find(params[:id])
-    ########## TO BE DONE - complex interlink with bookings
+    @instrument = Instrument.new
+    @checkin = params['checkin']
+    @checkout = params['checkout']
+    if ((!@checkin.blank?) && (!@checkout.blank?))
+      from = @checkin.split("/")
+      to = @checkout.split("/")
+      start = Date.new(from[2].to_f, from[1].to_f - 1, from[0].to_f)
+      finish = Date.new(to[2].to_f, to[1].to_f - 1, to[0].to_f)
+      @duration = (finish - start).to_f
+      @total_price = (@duration * @instrument.price.to_f).round
+    end
+    @instrument = Instrument.find(params[:id])
+    @bookings = @instrument.bookings
+    @alert_message = "You are viewing the instrument of #{@instrument.user.first_name}"
   end
 
   def edit
@@ -40,6 +53,6 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name)
+    params.require(:instrument).permit(:name, :price, :photo, :location, :booking_id)
   end
 end
