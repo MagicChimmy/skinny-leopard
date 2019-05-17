@@ -1,0 +1,38 @@
+<div>
+ <%= simple_form_for [@instrument, @booking] do |f| %>
+
+      <div>
+        <div >
+        <p>From </p>
+        <%= f.text_field :checkin, value: @checkin_value, placeholder: "dd/mm/yyyy" %>
+        </div>
+        <div>
+        <p> To </p>
+        <%= f.text_field :checkout, value: @checkout_value, placeholder: "dd/mm/yyyy" %>
+        </div>
+        <p> Total price: <span id="total_price"><%= @total_price %> €</span></p>
+        <%= f.submit "Book", class: "btn btn-danger"%>
+      </div>
+
+    <% end%>
+  </div>
+
+<% content_for(:after_js) do %>
+
+  <script>
+    $(document).ready(function() {
+      $(".checkin, .checkout").on("change", function(e) {
+        var from = $(".checkin").val().split("/");
+        var to = $(".checkout").val().split("/");
+        var start = new Date(from[2], from[1] - 1, from[0]);
+        var end = new Date(to[2], to[1] - 1, to[0]);
+        var nb_days = Math.round((end - start)/(1000*60*60*24));
+        var total_price = duration * <%= @instrument.price %> || 0 ;
+        $("#total_price").html(total_price + " £");
+      });
+    });
+  </script>
+
+<% end %>
+
+
