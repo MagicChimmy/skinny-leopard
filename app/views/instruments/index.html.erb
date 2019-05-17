@@ -1,2 +1,8 @@
-<h1>Instrumentsindex#create</h1>
-<p>Find me in app/views/instrumentsindex/create.html.erb</p>
+<!-- <h1>Instrumentsindex#create</h1>
+<p>Find me in app/views/instrumentsindex/create.html.erb</p> -->
+
+  <% @instruments.each do |f| %>
+  <h1><%= f.name %></h1>
+  <p><%= f.location %></p>
+  <p><%= f.price %></p>
+  <% end %>
