@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+
+  get 'my_instruments', to: 'users#my_instruments', as: :my_instruments
+
+
   resources :instruments do
     resources :bookings, only: [:create, :new]
   end
