@@ -9,6 +9,8 @@ gem 'rails', '5.2.3'
 gem 'redis'
 
 gem 'devise'
+gem 'pundit'
+
 
 
 gem 'autoprefixer-rails'
