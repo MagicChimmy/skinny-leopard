@@ -31,7 +31,7 @@ class InstrumentsController < ApplicationController
     end
     @instrument = Instrument.find(params[:id])
     @bookings = @instrument.bookings
-    @alert_message = "You are viewing the instrument of #{@instrument.user.first_name}"
+    @alert_message = "This is #{@instrument.user.first_name}'s instrument"
   end
 
   def edit
