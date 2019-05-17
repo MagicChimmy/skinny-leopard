@@ -1,6 +1,8 @@
 class InstrumentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    @instruments = Instrument.all
+    @instruments = policy_scope(Instrument).all
   end
 
   def new
