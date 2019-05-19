@@ -5,4 +5,8 @@
   <h1><%= f.name %></h1>
   <p><%= f.location %></p>
   <p><%= f.price %></p>
+  <p><%= f.category %></p>
+  <p><%= f.description %></p>
+  <p><%= cl_image_tag f.photo, height: 300, width: 400, crop: :fill %></p>
+
   <% end %>
