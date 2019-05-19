@@ -32,6 +32,7 @@ class InstrumentsController < ApplicationController
       @total_price = (@duration * @instrument.price.to_f).round
     end
     @instrument = Instrument.find(params[:id])
+    authorize @instrument
     @bookings = @instrument.bookings
     @alert_message = "This is #{@instrument.user.first_name}'s instrument"
   end
