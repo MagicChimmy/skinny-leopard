@@ -4,16 +4,12 @@
 
 <div class="container">
   <div class="card-instrument">
-    <%= cl_image_tag @instrument.photo, crop: :fill %>
     <div class="card-instrument-information">
       <div>
         <h1><%= @instrument.name %></h1>
         <p>Address: <%= @instrument.location %></p>
       </div>
       <h2 class="card-instrument-pricing"><%= @instrument.price %></h2>
-      <div class="card-instrument-user">
-        <%= cl_image_tag @instrument.user, crop: :fill %>
-      </div>
       <p>Category: <%= @instrument.category %></p>
       <p>Description: <%= @instrument.description %></p>
     </div>
@@ -22,8 +18,11 @@
       <%= link_to "Back", instruments_path, class: "btn btn-primary" %>
     </div>
     <%= link_to "Book Now", new_instrument_booking_path(@instrument) %>
-    <% if policy(@instrument).edit? %>
-      <%= link_to "Delete Vehicle", instrument_path, method: :delete, class: "btn btn-primary" %>
-      <%= link_to "Edit Vehicle", edit_instrument_path, class: "btn btn-primary" %>
-    <% end %>
 </div>
+
+
+
+<!-- # if policy(@instrument).edit? %>
+#        link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-primary" %>
+#       link_to "Edit Instrument", edit_instrument_path, class: "btn btn-primary" %>
+#    end %> -->
