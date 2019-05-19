@@ -1,0 +1,13 @@
+<h1>Bonjour, je suis une boooking</h1>
+
+<ul>
+  <li><%= @booking.instrument.name %> </li>
+  <li><%= @booking.checkin %></li>
+  <li><%= @booking.checkout %></li>
+</ul>
+<!--
+<% if policy(@booking).edit? %>
+  <%= link_to "Delete Booking", booking_path, method: :delete, class: "btn btn-primary" %>
+  <%= link_to "Edit Booking", edit_vehicle_booking_path(@booking.vehicle) , class: "btn btn-primary" %>
+<% end %>
+ -->

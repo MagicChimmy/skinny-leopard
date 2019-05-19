@@ -1,0 +1,7 @@
+<div class="container mb-3">
+<%= simple_form_for [@instrument, @booking] do |f| %>
+  <%= f.input :checkin, label:'Start date' %>
+  <%= f.input :checkout, label:'End date' %>
+  <%= f.button :submit, "Create!", class: "form-button" %>
+<% end %>
+</div>
