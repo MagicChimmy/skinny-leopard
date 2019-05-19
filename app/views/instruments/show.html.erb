@@ -1,5 +1,4 @@
-<h1>Instrumentsindex#show</h1>
-<p>Find me in app/views/instrumentsindex/show.html.erb</p>
+<h1><%= @instrument.name %>:</h1>
 
 
 <div class="container">
@@ -7,7 +6,6 @@
     <%= cl_image_tag @instrument.photo, crop: :fill %>
     <div class="card-instrument-information">
       <div>
-        <h1><%= @instrument.name %></h1>
         <p>Address: <%= @instrument.location %></p>
       </div>
       <h2 class="card-instrument-pricing"><%= @instrument.price %></h2>
@@ -22,8 +20,4 @@
       <%= link_to "Back", instruments_path, class: "btn btn-primary" %>
     </div>
     <%= link_to "Book Now", new_instrument_booking_path(@instrument) %>
-    <% if policy(@instrument).edit? %>
-      <%= link_to "Delete Vehicle", instrument_path, method: :delete, class: "btn btn-primary" %>
-      <%= link_to "Edit Vehicle", edit_instrument_path, class: "btn btn-primary" %>
-    <% end %>
 </div>

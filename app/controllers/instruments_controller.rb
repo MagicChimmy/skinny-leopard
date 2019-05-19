@@ -7,10 +7,13 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
+    authorize @instrument
   end
 
   def create
     @instrument = Instrument.new(instrument_params)
+    @instrument.user = current_user
+    authorize @instrument
     if @instrument.save
       redirect_to instrument_path(@instrument)
     else
@@ -33,6 +36,7 @@ class InstrumentsController < ApplicationController
     end
     @instrument = Instrument.find(params[:id])
     @bookings = @instrument.bookings
+    authorize @instrument
     @alert_message = "This is #{@instrument.user.first_name}'s instrument"
   end
 
