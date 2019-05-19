@@ -1,12 +1,10 @@
-<h1>Instrumentsindex#show</h1>
-<p>Find me in app/views/instrumentsindex/show.html.erb</p>
+<h1><%= @instrument.name %>:</h1>
 
 
 <div class="container">
   <div class="card-instrument">
     <div class="card-instrument-information">
       <div>
-        <h1><%= @instrument.name %></h1>
         <p>Address: <%= @instrument.location %></p>
       </div>
       <h2 class="card-instrument-pricing"><%= @instrument.price %></h2>
