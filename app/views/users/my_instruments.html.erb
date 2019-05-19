@@ -1,3 +1,10 @@
+<h1>My Instruments:</h1>
 <% @instruments.each do |i| %>
-  <p><%= i.name %></p>
+<h2><%= i.name %></h2>
+  <p><%= i.category %></p>
+  <h3><%= i.price %></h3>
+  <h4><%= i.location %></h4>
+  <p><%= i.description %></p>
+  <p><%= i.photo %></p>
 <% end %>
+
