@@ -17,9 +17,12 @@
   </div>
 </div>
 
-<div></div>
-
 <div class="container d-flex cards-container">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1461784121038-f088ca1e7714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
+      <% @instruments.each do |instrument| %>
+      <h3><%= instrument.name %></h3>
+   <!--    <p><%= instrument.location %></p> -->
+      <p><%= instrument.price %></p>
+      <% end %>
     </div>
 </div>

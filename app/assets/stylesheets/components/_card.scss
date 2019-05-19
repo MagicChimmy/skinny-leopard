@@ -13,8 +13,22 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  h3 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+
+  p {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin-bottom: 0;
+  }
 }
 
 .cards-container {
   width: 83%;
 }
+
