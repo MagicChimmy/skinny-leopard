@@ -1,12 +1,13 @@
-<!-- <h1>Instrumentsindex#create</h1>
-<p>Find me in app/views/instrumentsindex/create.html.erb</p> -->
-<div class="main-header">Let's get an instrument:</div>
-  <% @instruments.each do |f| %>
-  <h1><%= f.name %></h1>
-  <p><%= f.location %></p>
-  <p><%= f.price %></p>
-  <p><%= f.category %></p>
-  <p><%= f.description %></p>
-  <p><%= cl_image_tag f.photo, height: 300, width: 400, crop: :fill %></p>
+<h1> Checkout our instru*mental* collection </h1>
 
-  <% end %>
+<div class="container d-flex cards-container">
+    <% @instruments.each do |i| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i.photo, height: 300, width: 400, crop: :fill unless i.photo.blank? %>')">
+        <h3><%= link_to i.name, instrument_path(i), class: "hyperlink" %></h3>
+        <p><%= i.location %></p>
+        <p><%= i.price %></p>
+        <p><%= i.category %></p>
+      </div>
+    <% end %>
+</div>
+
