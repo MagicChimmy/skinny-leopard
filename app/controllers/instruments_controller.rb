@@ -42,11 +42,13 @@ class InstrumentsController < ApplicationController
 
   def edit
     @instrument = Instrument.find(params[:id])
+    authorize @instrument
   end
 
   def update
     @instrument = Instrument.find(params[:id])
     @instrument.update(instrument_params)
+    authorize @instrument
     redirect_to instrument_path(@instrument)
   end
 

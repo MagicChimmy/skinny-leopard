@@ -18,9 +18,7 @@
     <%= link_to "Book Now", new_instrument_booking_path(@instrument) %>
 </div>
 
-
-
-<!-- # if policy(@instrument).edit? %>
-#        link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-primary" %>
-#       link_to "Edit Instrument", edit_instrument_path, class: "btn btn-primary" %>
-#    end %> -->
+<% if policy(@instrument).edit? %>
+<%= link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-primary" %>
+<%= link_to "Edit Instrument", edit_instrument_path, class: "btn btn-primary" %>
+<% end %>
