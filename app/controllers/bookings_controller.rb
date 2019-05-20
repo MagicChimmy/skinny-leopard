@@ -20,15 +20,15 @@ def create
     @booking.value = 0
   end
   if @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   else
     redirect_to instrument_path(@instrument)
   end
 end
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
-    @review = Review.new
+    @bookings = policy_scope(Booking)
+    @other_bookings = current_user.instruments.map(&:bookings)
   end
 
   def show
@@ -37,17 +37,28 @@ end
     authorize @booking
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
   def update
     @booking = Booking.find(params[:id])
-    @booking.status = "Pending validation by renter"
-    @booking.save!
-    redirect_to booking_path(@booking)
+    if @booking.update(booking_params)
+      @booking.status = "Pending validation by renter"
+      authorize @booking
+      @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to root_path
+    authorize @booking
+    redirect_to bookings_path
   end
 
   private

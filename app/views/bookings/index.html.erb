@@ -1,0 +1,26 @@
+<h1>Bookings Overview</h1>
+
+<h2> My Bookings </h2>
+
+<% @bookings.each do |booking| %>
+  <ul>
+  <li><%= booking.instrument.name %> </li>
+  <li><%= booking.checkin %></li>
+  <li><%= booking.checkout %></li>
+  <li><%= booking.value %></li>
+  <li><%= link_to "view", booking_path(booking) %></li>
+</ul>
+  <% end %>
+
+<h2> Bookings for my instruments  </h2>
+
+<% @other_bookings.flatten.each do |booking| %>
+  <ul>
+  <li><%= booking.instrument.name %> </li>
+  <li><%= booking.checkin %></li>
+  <li><%= booking.checkout %></li>
+  <li><%= booking.value %></li>
+</ul>
+  <% end %>
+
+

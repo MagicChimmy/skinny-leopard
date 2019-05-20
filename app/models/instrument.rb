@@ -4,7 +4,7 @@ class Instrument < ApplicationRecord
   validates :name, presence: true
 
   validates :price, presence: true
-
+  mount_uploader :photo, PhotoUploader
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   # has_attachment :photo
