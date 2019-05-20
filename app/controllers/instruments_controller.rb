@@ -54,6 +54,7 @@ class InstrumentsController < ApplicationController
 
   def destroy
     @instrument = Instrument.find(params[:id])
+    authorize @instrument
     @instrument.destroy
     redirect_to root_path
   end
