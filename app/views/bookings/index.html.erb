@@ -23,4 +23,18 @@
 </ul>
   <% end %>
 
+<h2> My past bookings  </h2>
 
+<% @bookings.each do |booking| %>
+  <% if booking.checkout <= Date.today %>
+
+      <ul>
+        <li><%= booking.instrument.name %> </li>
+        <li><%= booking.checkin %></li>
+        <li><%= booking.checkout %></li>
+        <li><%= booking.value %></li>
+          <li class="text-center">Your review <%= render 'reviews/form', booking: booking, review: @review %></li>
+        <li><%= link_to "view", booking_path(booking) %></li>
+      </ul>
+    <% end %>
+    <% end %>
