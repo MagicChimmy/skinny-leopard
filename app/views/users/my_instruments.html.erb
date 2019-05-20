@@ -1,15 +1,3 @@
 <h1>My Instruments:</h1>
-<% @instruments.each do |i| %>
-<h2><%= i.name %></h2>
-  <p><%= i.category %></p>
-  <h3><%= i.price %></h3>
-  <h4><%= i.location %></h4>
-  <p><%= i.description %></p>
-  <p><%= cl_image_tag i.photo, height: 300, width: 400, crop: :fill %></p>
-  <div class="container">
-    <%= link_to "Edit", edit_instrument_path(i), class: "btn btn-primary" %>
-    <%= link_to instrument_path(i), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="fas fa-dumpster"></i>
-      <% end %>
-<% end %>
 
+<%= render "shared/card" %>
