@@ -7,8 +7,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.booking = @booking
+    @booking.review = @review
+    authorize @review
+    authorize @booking
     @review.save
+    @booking.save
     redirect_to bookings_path
   end
 
