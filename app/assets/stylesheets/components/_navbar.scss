@@ -10,6 +10,7 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  justify-content: flex-end;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -21,9 +22,8 @@
   font-family: 'Stylish', sans-serif;
   font-size: 48px;
   color: $black;
-  align-items: center;
-  position: absolute;
-  left: 40%;
+  justify-content: center;
+
 }
 
 .text-font {
@@ -51,5 +51,8 @@
   top: 0;
  }
 
+.logos {
+  justify-content: flex-start;
+}
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 
