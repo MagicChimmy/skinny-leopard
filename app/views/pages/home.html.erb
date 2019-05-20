@@ -3,9 +3,9 @@
     <h1>Skinny Leopard <strong>creative solutions</strong> for <strong>creative musicians</strong>!</h1>
     <p>Find an amazing instrument to rent!</p>
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group", id="search_bar">
+      <div class="search-form-control form-group yellow", id="search_bar">
         <%= f.input :name, class: "form-control string required", :label => false, placeholder: "Guitars, drums, saxophone, vintage synths....." %>
-        <button name="button" type="submit" class="btn btn-flat">
+        <button name="button" type="submit" class="btn btn-flat yellow">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
@@ -17,12 +17,4 @@
   </div>
 </div>
 
-<div class="container d-flex cards-container">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
-      <% @instruments.each do |instrument| %>
-      <h3><%= instrument.name %></h3>
-   <!--    <p><%= instrument.location %></p> -->
-      <p><%= instrument.price %></p>
-      <% end %>
-    </div>
-</div>
+<%= render "shared/card" %>
