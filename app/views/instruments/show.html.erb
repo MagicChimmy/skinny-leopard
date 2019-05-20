@@ -22,3 +22,24 @@
 <%= link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-primary" %>
 <%= link_to "Edit Instrument", edit_instrument_path, class: "btn btn-primary" %>
 <% end %>
+
+
+ <p>Reviews<p>
+      <% @bookings.each do |booking|%>
+      <ul class="list-inline">
+       <% if booking.review %>
+          <li class="list-unstyled">
+          <div class="review-comment">
+            <% booking.review.rating.times do %>
+            <i class="fa fa-star" aria-hidden="true" ></i>
+            <% end %>
+            <% (5- booking.review.rating).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+            <p> <%= booking.review.content %> </p>
+          </div>
+          </div>
+          </li>
+        <% end %>
+       </ul>
+     <% end %>
