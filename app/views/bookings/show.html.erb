@@ -1,11 +1,20 @@
-<h1>Bonjour, je suis une boooking</h1>
+<div class="container mt-5">
+  <h1>Your Booking</h1>
 
-<ul>
-  <li><%= @booking.instrument.name %> </li>
-  <li><%= @booking.checkin %></li>
-  <li><%= @booking.checkout %></li>
-</ul>
-<% if policy(@booking).edit? %>
-  <%= link_to "Delete Booking", booking_path, method: :delete, class: "btn btn-primary" %>
-  <%= link_to "Edit Booking", edit_booking_path(@booking) , class: "btn btn-primary" %>
-<% end %>
+    <div class="booking-index-card mt-5 mb-3 w-100">
+      <%= cl_image_tag @booking.instrument.photo, height: 300 %>
+      <div class="booking-index-card-content d-flex flex-column p-3">
+        <p class="booking-index-card-title mb-2"><%= @booking.instrument.name %></p>
+        <p class="booking-index-card-subheading fas fa-music"><%= @booking.instrument.category %></p>
+        <p class="booking-index-card-text flex-grow-1 fas fa-comment"><%= @booking.instrument.description %></p>
+        <p class="booking-index-card-text">You have rented it from the <%= @booking.checkin %> until the <%= @booking.checkout %> </p>
+        <p class="booking-index-card-text">Total price: £ <%= @booking.value = (@booking.checkout - @booking.checkin).to_f * @booking.instrument.price.to_f %>
+      </div>
+    </div>
+
+  <% if policy(@booking).edit? %>
+    <%= link_to "Edit Booking", edit_booking_path(@booking) , class: "btn btn-flat yellow" %>
+    <%= link_to "Delete Booking", booking_path, method: :delete, class: "btn btn-flat yellow" %>
+  <% end %>
+
+</div>

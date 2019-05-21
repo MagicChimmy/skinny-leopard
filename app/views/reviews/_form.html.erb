@@ -1,5 +1,6 @@
-<%= simple_form_for [ @booking, @review ], url: booking_reviews_path(booking), method: :post do |form| %>
+
+<%= simple_form_for [ @booking, @review ], url: booking_reviews_path(@booking), method: :post do |form| %>
   <%= form.input :content, as: :text %>
-  <%= form.input :rating %>
-  <button class="btn btn-primary"><%= form.button :submit %></button>
+  <%= form.input :rating, collection: [1, 2, 3, 4, 5] %>
+  <button class="btn btn-flat yellow"><%= form.button :submit %></button>
 <% end %>
