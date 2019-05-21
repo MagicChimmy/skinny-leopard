@@ -2,3 +2,7 @@
 .yielded {
   min-height: calc(100vh - 170px)
 }
+
+body {
+  background-image: linear-gradient(to bottom right, $black, $black-gray);
+}
