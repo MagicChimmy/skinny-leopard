@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $white;
   background-color: $yellow;
   color: $black;
   align-items: center;
@@ -23,7 +23,6 @@
   font-size: 48px;
   color: $black;
   justify-content: center;
-
 }
 
 .text-font {
@@ -48,11 +47,20 @@
 }
  #navbar {
   position: sticky;
+  z-index: 1;
   top: 0;
  }
 
 .logos {
   justify-content: flex-start;
 }
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+
+.transparent-navbar {
+  transition: 0.5s background-color ease;
+  background-color: rgba(240, 209, 123, 0.3);
+}
+
+.padded {
+  margin-right: 10px;
+}
 
