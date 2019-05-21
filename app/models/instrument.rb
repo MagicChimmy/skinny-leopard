@@ -1,4 +1,5 @@
 class Instrument < ApplicationRecord
+  include PgSearch
   belongs_to :user
   validates :location, presence: true
   validates :name, presence: true
@@ -8,5 +9,10 @@ class Instrument < ApplicationRecord
   validates :photo, presence: true
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings, dependent: :destroy
-  # has_attachment :photo
+
+  pg_search_scope :search_by_name_and_location_and_category,
+    against: [:name, :location, :category],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
