@@ -1,6 +1,13 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
-    @instruments = Instrument.all
+    if params[:search].nil? || params[:search] == ""
+      @instruments = Instrument.all
+    elsif Instrument.search_by_name_and_location_and_category(params[:search]).empty?
+      redirect_to(root_path, alert: "Empty!")
+    else
+      @instruments = Instrument.search_by_name_and_location_and_category(params[:search])
+    end
   end
+
 end
