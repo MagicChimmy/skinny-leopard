@@ -1,45 +1,47 @@
-<h1><%= @instrument.name %>:</h1>
-
-
-<div class="container">
-  <div class="card-instrument">
-    <div class="card-instrument-information">
-      <div>
-        <p>Address: <%= @instrument.location %></p>
-      </div>
-      <h2 class="card-instrument-pricing"><%= @instrument.price %></h2>
-      <p>Category: <%= @instrument.category %></p>
-      <p>Description: <%= @instrument.description %></p>
-    </div>
+<div class="container border-radius">
+  <div class="top-image">
+    <%= cl_image_tag @instrument.photo, crop: :fill, class: 'w-100' %>
   </div>
-    <div class="container">
-      <%= link_to "Back", instruments_path, class: "btn btn-primary" %>
+  <div class="content-container d-flex justify-content-between">
+    <div class="details-container w-50">
+      <div class="title-container d-flex justify-content-between">
+        <h1><%= @instrument.name.capitalize %></h1>
+      </div>
+      <div class="instrument-fields">
+        <p><i class="fas fa-music"/i></i> <%= @instrument.category %> </p>
+        <p><i class="fas fa-comment"></i> <%= @instrument.description %></p>
+      </div>
     </div>
-    <%= link_to "Book Now", new_instrument_booking_path(@instrument) %>
-</div>
+    <div class="booking-container">
+      <div class="box-with-shadow border-radius sticky-top">
+          <div class="price d-flex">
+            <h4><strong>£<%= @instrument.price %></strong></h4>
+            <p> per day</p>
+          </div>
+          <%= link_to "Book now", new_instrument_booking_path(@instrument), class: 'btn btn-flat yellow w-100' %>
+        </div>
+      </div>
+    </div>
 
-<% if policy(@instrument).edit? %>
-<%= link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-primary" %>
-<%= link_to "Edit Instrument", edit_instrument_path, class: "btn btn-primary" %>
-<% end %>
-
-
- <p>Reviews<p>
-      <% @bookings.each do |booking|%>
-      <ul class="list-inline">
-       <% if booking.review %>
-          <li class="list-unstyled">
-          <div class="review-comment">
-            <% booking.review.rating.times do %>
-            <i class="fa fa-star" aria-hidden="true" ></i>
-            <% end %>
-            <% (5- booking.review.rating).times do %>
+  <div class="content-container d-flex justify-content-between">
+    <div class="reviews-container w-50">
+        <h3>Reviews</h3>
+        <% @bookings.each do |booking|%>
+           <% if booking.review %>
+           <% booking.review.rating.times do %>
+             <i class="fa fa-star" aria-hidden="true" ></i>
+           <% end %>
+           <% (5- booking.review.rating).times do %>
               <i class="fa fa-star-o" aria-hidden="true"></i>
             <% end %>
             <p> <%= booking.review.content %> </p>
-          </div>
-          </div>
-          </li>
         <% end %>
-       </ul>
-     <% end %>
+        <% end  %>
+      </div>
+    </div>
+  </div>
+
+   <% if policy(@instrument).edit? %>
+    <%= link_to "Edit Instrument", edit_instrument_path(@instrument) , class: "btn btn-flat yellow" %>
+    <%= link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-flat yellow" %>
+  <% end %>

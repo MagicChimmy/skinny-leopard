@@ -36,7 +36,6 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.find(params[:id])
     authorize @instrument
     @bookings = @instrument.bookings
-    # authorize @instrument
     @alert_message = "This is #{@instrument.user.first_name}'s instrument"
   end
 
@@ -62,6 +61,6 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name, :price, :photo, :location, :booking_id)
+    params.require(:instrument).permit(:name, :price, :photo, :location, :booking_id, :category, :description)
   end
 end
