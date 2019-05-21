@@ -13,8 +13,8 @@
     </div>
 
   <% if policy(@booking).edit? %>
-    <%= link_to "Edit Booking", edit_booking_path(@booking) , class: "btn btn-primary" %>
-    <%= link_to "Delete Booking", booking_path, method: :delete, class: "btn btn-success" %>
+    <%= link_to "Edit Booking", edit_booking_path(@booking) , class: "btn btn-flat yellow" %>
+    <%= link_to "Delete Booking", booking_path, method: :delete, class: "btn btn-flat yellow" %>
   <% end %>
 
 </div>
