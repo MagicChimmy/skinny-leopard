@@ -4,7 +4,7 @@
   <% @bookings.each do |b| %>
     <% if b.checkout >= Date.today %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.instrument.photo, height: 300, width: 400, crop: :fill unless b.instrument.photo.blank? %>')">
-        <h3><%= link_to b.instrument.name, booking_path(b), class: "hyperlink" %></h3>
+        <h3><%= link_to b.instrument.name.capitalize, booking_path(b), class: "hyperlink" %></h3>
         <p>£<%= b.instrument.price %>/day</p>
           <div class="card-button-btm-left"><%= link_to "Edit This Booking", edit_booking_path(b), class: "btn btn-primary", id: "button" %>
           </div>
@@ -16,7 +16,7 @@
     <% @bookings.each do |b| %>
      <% if b.checkout <= Date.today %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.instrument.photo, height: 300, width: 400, crop: :fill unless b.instrument.photo.blank? %>')">
-        <h3><%= link_to b.instrument.name, booking_path(b), class: "hyperlink" %></h3>
+        <h3><%= link_to b.instrument.name.capitalize, booking_path(b), class: "hyperlink" %></h3>
         <p>£<%= b.instrument.price %>/day</p>
       <div class="card-button-btm-left"><%= link_to "Leave A Review", new_booking_review_path(b), class: "btn btn-primary", id: "button" %>
      <% end  %>
