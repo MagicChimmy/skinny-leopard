@@ -1,29 +1,21 @@
 <h1>Bookings Overview</h1>
 
 <h2> My Bookings </h2>
+<h3> Present </h3>
 
 <% @bookings.each do |booking| %>
-  <ul>
-  <li><%= booking.instrument.name %> </li>
-  <li><%= booking.checkin %></li>
-  <li><%= booking.checkout %></li>
-  <li><%= booking.value %></li>
-  <li><%= link_to "view", booking_path(booking) %></li>
-</ul>
+  <% if booking.checkout >= Date.today %>
+    <ul>
+      <li><%= booking.instrument.name %> </li>
+      <li><%= booking.checkin %></li>
+      <li><%= booking.checkout %></li>
+      <li><%= booking.value %></li>
+      <li><%= link_to "view", booking_path(booking) %></li>
+    </ul>
   <% end %>
+<% end %>
 
-<h2> Bookings for my instruments  </h2>
-
-<% @other_bookings.flatten.each do |booking| %>
-  <ul>
-  <li><%= booking.instrument.name %> </li>
-  <li><%= booking.checkin %></li>
-  <li><%= booking.checkout %></li>
-  <li><%= booking.value %></li>
-</ul>
-  <% end %>
-
-<h2> My past bookings  </h2>
+<h3> Past </h3>
 
 <% @bookings.each do |booking| %>
   <% if booking.checkout <= Date.today %>
@@ -36,5 +28,19 @@
           <li class="text-center">Your review <%= render 'reviews/form', booking: booking, review: @review %></li>
         <li><%= link_to "view", booking_path(booking) %></li>
       </ul>
-    <% end %>
-    <% end %>
+  <% end %>
+<% end %>
+
+
+<h2> Bookings for my instruments  </h2>
+
+<% @other_bookings.flatten.each do |booking| %>
+  <ul>
+    <li><%= booking.instrument.name %> </li>
+    <li><%= booking.checkin %></li>
+    <li><%= booking.checkout %></li>
+    <li><%= booking.value %></li>
+  </ul>
+<% end %>
+
+
