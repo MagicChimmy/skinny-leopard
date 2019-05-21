@@ -10,6 +10,10 @@
         <p>£<%= b.instrument.price %>/day</p>
           <div class="card-button-btm-left"><%= link_to "Edit This Booking", edit_booking_path(b), class: "btn btn-primary", id: "button" %>
             </div>
+             <div class="container">
+            <div class="card-button-top-right"><%= link_to instrument_path(i), id: "icon-button", method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-dumpster"></i>
+            <% end %>
           </div>
       </div>
     </div>
