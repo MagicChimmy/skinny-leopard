@@ -1,3 +1,13 @@
-<h1 class="main-header">My Instruments:</h1>
+<h1>Your Listings:</h1>
 
-<%= render "shared/card" %>
+<div class="container d-flex cards-container">
+  <% @instruments.each do |instrument| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path instrument.photo, height: 300, width: 400, crop: :fill unless instrument.photo.blank? %>')">
+      <h3><%= link_to instrument.name, instrument_path(instrument), class: "hyperlink" %></h3>
+      <p>£<%= instrument.price %>/day</p>
+      <div class="card-button-btm-left"><%= link_to "Edit This Listing", edit_instrument_path(instrument), class: "btn btn-primary", id: "button" %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>
