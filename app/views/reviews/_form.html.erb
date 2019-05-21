@@ -1,4 +1,4 @@
-<%= simple_form_for [ @booking, @review ], url: booking_reviews_path(booking), method: :post do |form| %>
+<%= simple_form_for [ @booking, @review ], url: booking_reviews_path(@booking), method: :post do |form| %>
   <%= form.input :content, as: :text %>
   <%= form.input :rating %>
   <button class="btn btn-primary"><%= form.button :submit %></button>
