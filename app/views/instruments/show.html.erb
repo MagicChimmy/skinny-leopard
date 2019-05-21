@@ -18,7 +18,7 @@
             <h4><strong>£<%= @instrument.price %></strong></h4>
             <p> per day</p>
           </div>
-          <%= link_to "Book now", new_instrument_booking_path(@instrument), class: 'btn btn-primary w-100' %>
+          <%= link_to "Book now", new_instrument_booking_path(@instrument), class: 'btn btn-flat yellow w-100' %>
         </div>
       </div>
     </div>
@@ -42,6 +42,6 @@
   </div>
 
    <% if policy(@instrument).edit? %>
-    <%= link_to "Edit Instrument", edit_instrument_path(@instrument) , class: "btn btn-primary" %>
-    <%= link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-success" %>
+    <%= link_to "Edit Instrument", edit_instrument_path(@instrument) , class: "btn btn-flat yellow" %>
+    <%= link_to "Delete Instrument", instrument_path, method: :delete, class: "btn btn-flat yellow" %>
   <% end %>
