@@ -7,6 +7,6 @@ class Instrument < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   validates :photo, presence: true
   has_many :bookings, dependent: :destroy
-  has_many :reviews, through: :bookings
+  has_many :reviews, through: :bookings, dependent: :destroy
   # has_attachment :photo
 end

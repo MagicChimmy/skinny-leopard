@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, only: [:new, :create]
+  before_action :set_booking, only: [:new, :create, :destroy]
 
   def new
     @review = Review.new
@@ -13,6 +13,10 @@ class ReviewsController < ApplicationController
     @review.save
     @booking.save
     redirect_to bookings_path
+  end
+
+  def destroy
+    @booking.review.destroy
   end
 
   private
