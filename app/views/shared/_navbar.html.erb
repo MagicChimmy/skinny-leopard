@@ -8,17 +8,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="company-name">skinny_leopard</div>
+  <div class="company-name black">skinny_leopard</div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto buttons-flex">
-      <li class="nav-item active">
-        <%= link_to "Browse", instruments_path, class: "nav-link padded" %>
+      <li class="nav-item active black">
+        <%= link_to "Browse", instruments_path, class: "nav-link padded black" %>
       </li>
       <li class="nav-item active">
         <% if user_signed_in? %>
       <li class="nav-item dropdown">
-        <i class="avatar dropdown-toggle fas fa-user" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="profile"/></i>
+        <i class="avatar dropdown-toggle fas fa-user black" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="profile"/></i>
           <div class="dropdown-menu dropdown-menu-right" id="dropdown" aria-labelledby="navbarDropdown">
             <%= link_to "My Listings", my_instruments_path, class: "nav-link" %>
             <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
@@ -32,10 +32,9 @@
       <% end %>
       <li class="nav-item">
         <%= link_to new_instrument_path, class: "navbar-brand p-2" do %>
-          <div class="newlisting"><i class="fas fa-plus-circle"></i><p>New Listing</p></div>
+          <div class="newlisting black"><i class="fas fa-plus-circle black"></i><p class="black">New Listing</p></div>
         <% end %>
       </li>
     </ul>
   </div>
 </div>
-

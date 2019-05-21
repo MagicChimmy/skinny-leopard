@@ -3,12 +3,13 @@
   background-position: center;
   padding: 150px 0;
   margin: 20px;
+  box-shadow: 5px;
 }
 
 .banner h1 {
   margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: $white;
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
   margin-left: 50px;
@@ -16,9 +17,9 @@
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: $white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 10px 10px 10px rgba(0,0,0,0.2);
   margin-bottom: 50px;
   margin-left: 50px;
 }
