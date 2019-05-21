@@ -1,3 +1,18 @@
-<h1 class="main-header">My Instruments:</h1>
+<h1>Your Listings:</h1>
 
-<%= render "shared/card" %>
+<div class="container d-flex cards-container">
+    <% @instruments.each do |i| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i.photo, height: 300, width: 400, crop: :fill unless i.photo.blank? %>')">
+        <h3><%= link_to i.name.capitalize, instrument_path(i), class: "hyperlink" %></h3>
+        <p>£<%= i.price %> /day</p>
+          <div class="container">
+            <div class="card-button-top-right"><%= link_to instrument_path(i), id: "icon-button", method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-dumpster"></i>
+            <% end %>
+            </div>
+            <div class="card-button-btm-left"><%= link_to "Edit this listing", edit_instrument_path(i), class: "btn btn-primary", id: "button" %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>

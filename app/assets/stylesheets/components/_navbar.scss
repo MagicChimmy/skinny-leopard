@@ -1,6 +1,5 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $white;
   background-color: $yellow;
   color: $black;
   align-items: center;
@@ -33,7 +32,7 @@
   align-items: center;
   border: 1px solid $black;
   border-radius: 16px;
-  padding: 4px;
+  padding: 5px;
   p {
     margin-bottom: 0;
     margin-left: 5px;
@@ -57,10 +56,14 @@
 
 .transparent-navbar {
   transition: 0.5s background-color ease;
-  background-color: rgba(240, 209, 123, 0.3);
+  background-color: rgba(240, 209, 123, 0.4);
 }
 
 .padded {
   margin-right: 10px;
 }
 
+.white {
+  color: $white !important;
+  border-color: $white !important;
+}
