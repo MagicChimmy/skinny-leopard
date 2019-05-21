@@ -1,18 +1,20 @@
-<div class="container d-flex cards-container">
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4">
     <% @instruments.each do |i| %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i.photo, height: 300, width: 400, crop: :fill unless i.photo.blank? %>')">
         <h3><%= link_to i.name.capitalize, instrument_path(i), class: "hyperlink" %></h3>
         <p>£<%= i.price %></p>
         <p><%= i.category %></p>
-          <div class="container">
-            <div class="card-button-top-right"><%= link_to instrument_path(i), id: "icon-button", method: :delete, data: { confirm: "Are you sure?" } do %>
+
+          <div class="card-button-top-right">
+            <%= link_to instrument_path(i), id: "icon-button", method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fas fa-dumpster"></i>
             <% end %>
-            </div>
-            <div class="card-button-btm-left"><%= link_to "Edit", edit_instrument_path(i), class: "btn btn-primary", id: "button" %>
-            </div>
+          </div>
+          <div class="card-button-btm-left"><%= link_to "Edit", edit_instrument_path(i), class: "btn btn-primary", id: "button" %>
           </div>
       </div>
     <% end %>
+  </div>
 </div>
 

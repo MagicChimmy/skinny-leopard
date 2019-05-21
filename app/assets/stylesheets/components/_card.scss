@@ -22,20 +22,13 @@
    color: $white;
  }
 
- p {
-   position: absolute;
-   bottom: 5px;
-   right: 5px;
-   margin-bottom: 0;
-   color: $white;
- }
-}
-
-.cards-container {
- width: 90%;
- display: flex;
- flex-wrap: wrap;
- display: inline-block;
+  p {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin-bottom: 0;
+    color: $white;
+  }
 }
 
 .card-button-btm-left {
