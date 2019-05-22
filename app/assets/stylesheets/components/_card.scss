@@ -1,5 +1,4 @@
 .card-category {
- width: 300px;
  margin: 10px;
  background-size: cover;
  background-position: center;
@@ -55,6 +54,7 @@
 
   &:hover {
     background-color: $black;
+    color: $white;
     border-color: $black;
   }
 }
