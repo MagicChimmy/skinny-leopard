@@ -23,10 +23,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'pg_search'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'faker'
 end
 
 group :development, :test do
