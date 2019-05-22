@@ -2,20 +2,24 @@
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.solent.ac.uk/image-library/facilities/music-practice-rooms-banner.jpg);">
     <h1>Skinny Leopard <strong>creative solutions</strong> for <strong>creative musicians</strong>!</h1>
     <p>Find an amazing instrument to rent!</p>
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+
+
+      <%= form_tag(root_path, :method => "get") do %>
       <div class="search-form-control form-group yellow", id="search_bar">
-        <%= f.input :name, class: "form-control string required", :label => false, placeholder: "Guitars, drums, saxophone, vintage synths....." %>
+        <%= search_field_tag :search, params[:search], placeholder: "Search by instrument name, type or location!", class: "form-control string required" %>
         <button name="button" type="submit" class="btn btn-flat yellow">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
     <% end %>
+
   </div>
   <div class="desc-row">
     <h3 class="desc-text">Put your unused instruments to good use by renting out your gear.</h3>
     <p class="desc-text">Join the thousands of musicians earning extra cash today!</p>
   </div>
 </div>
+
 
 <div class="container cards-container">
   <div class="row">
