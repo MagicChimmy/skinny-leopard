@@ -27,7 +27,7 @@ end
 
 category = %w[electronic percussion classical strings woodwind]
 names = %w[guitar keyboard trumpet flute drums banjo saxophone bass cello]
-10.times do
+6.times do
   Instrument.create!(name: names.sample.capitalize, location: Faker::Address.city, price: rand(2..20) * 10, user: User.all.sample, category: category.sample, remote_photo_url: "https://source.unsplash.com/random/?instrument", description: Faker::ChuckNorris.fact)
 end
 
