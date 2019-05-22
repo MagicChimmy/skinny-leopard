@@ -22,9 +22,13 @@
       </div>
     </div>
 
+<br>
+<br>
   <div class="content-container d-flex justify-content-between">
     <div class="reviews-container w-50">
+      <div class="reviews">
         <h3>Reviews</h3>
+      </div>
         <% @bookings.each do |booking|%>
            <% if booking.review %>
            <% booking.review.rating.times do %>
