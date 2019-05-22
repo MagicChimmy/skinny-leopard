@@ -1,3 +1,17 @@
 
-<h1 class="fromRight"> Checkout our instru*mental* collection </h1>
-<%= render "shared/card" %>
+<h1 class="header-style fromRight"> Checkout our instru*mental* collection </h1>
+
+
+<div class="container cards-container">
+  <div class="row">
+      <% @instruments.each do |i| %>
+        <div class="col-sm-4">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i.photo, height: 300, width: 400, crop: :fill unless i.photo.blank? %>')">
+            <h3><%= link_to i.name.capitalize, instrument_path(i), class: "hyperlink" %></h3>
+            <p>£<%= i.price %></p>
+            <p class="card-button-btm-left"><%= i.category %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

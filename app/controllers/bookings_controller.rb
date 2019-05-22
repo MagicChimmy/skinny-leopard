@@ -28,7 +28,7 @@ end
 
   def index
     @bookings = policy_scope(Booking)
-    @other_bookings = current_user.instruments.map(&:bookings)
+    @other_bookings = current_user.instruments.map(&:bookings).reject(&:empty?)
     @review = Review.new
   end
 
