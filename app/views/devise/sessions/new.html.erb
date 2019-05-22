@@ -12,9 +12,10 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
+
+  <%= f.button :submit, "Log in", class: "btn btn-outline-secondary mb20" %>
 <% end %>
+
+
 
 <%= render "devise/shared/links" %>
