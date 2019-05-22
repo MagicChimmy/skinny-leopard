@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 require 'open-uri'
+require 'faker'
 
 User.destroy_all
 Instrument.destroy_all
