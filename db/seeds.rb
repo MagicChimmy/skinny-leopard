@@ -8,8 +8,10 @@
 require 'json'
 require 'open-uri'
 
-Instrument.destroy_all
 User.destroy_all
+Instrument.destroy_all
+Booking.destroy_all
+Review.destroy_all
 
 # Admin User
 User.create!(first_name: "Joe", last_name: "Blogs", password: "123456", email: "joe@blogs.com")
@@ -25,7 +27,29 @@ end
 
 category = %w[electronic percussion classical strings woodwind]
 names = %w[guitar keyboard trumpet flute drums banjo saxophone bass cello]
-20.times do
-  Instrument.create!(name: names.sample.capitalize, location: Faker::Address.city, price: rand(2..20) * 10, user: User.all.sample, category: category.sample, photo: "https://source.unsplash.com/random/?instrument")
+10.times do
+  Instrument.create!(name: names.sample.capitalize, location: Faker::Address.city, price: rand(2..20) * 10, user: User.all.sample, category: category.sample, remote_photo_url: "https://source.unsplash.com/random/?instrument", description: Faker::ChuckNorris.fact)
 end
+
+
+10. times do
+  instrument = Instrument.all.sample
+  checkin = Faker::Date.backward((1..20).to_a.sample)
+  checkout =  Faker::Date.forward((1..20).to_a.sample)
+  value = instrument.price * (checkout - checkin).to_i
+  Booking.create!(instrument: instrument, user: User.all.sample, checkin: checkin, checkout: checkout, value: value)
+end
+
+10. times do
+  instrument = Instrument.all.sample
+  checkin = Faker::Date.backward((20..40).to_a.sample)
+  checkout =  Faker::Date.backward((1..20).to_a.sample)
+  value = instrument.price * (checkout - checkin).to_i
+  Booking.create!(instrument: instrument, user: User.all.sample, checkin: checkin, checkout: checkout, value: value)
+end
+
+10.times do
+  Review.create!(content: Faker::Movies::HarryPotter.quote , rating: rand(1..5), booking: Booking.all.sample)
+end
+
 
