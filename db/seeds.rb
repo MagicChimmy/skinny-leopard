@@ -40,6 +40,14 @@ end
   Booking.create!(instrument: instrument, user: User.all.sample, checkin: checkin, checkout: checkout, value: value)
 end
 
+10. times do
+  instrument = Instrument.all.sample
+  checkin = Faker::Date.backward((20..40).to_a.sample)
+  checkout =  Faker::Date.backward((1..20).to_a.sample)
+  value = instrument.price * (checkout - checkin).to_i
+  Booking.create!(instrument: instrument, user: User.all.sample, checkin: checkin, checkout: checkout, value: value)
+end
+
 10.times do
   Review.create!(content: Faker::Movies::HarryPotter.quote , rating: rand(1..5), booking: Booking.all.sample)
 end
