@@ -1,4 +1,4 @@
-const initUpdateNavbarOnScroll = () => {
+wconst initUpdateNavbarOnScroll = () => {
   const navbar = document.getElementById('navbar');
   const dropdown = document.querySelector('#dropdown');
   const black = document.querySelectorAll('.black')
@@ -24,3 +24,16 @@ const initUpdateNavbarOnScroll = () => {
 
 export { initUpdateNavbarOnScroll };
 
+const initOpacityOnScroll = () => {
+  const dropdown = document.querySelector('#dropdown');
+  if (dropdown) {
+    window.addEventListener('scroll', (event) => {
+      if (window.scrollY >= 90) {
+        dropdown.style.opacity = 1;
+      } else {
+      }
+    })
+  }
+}
+
+export { initOpacityOnScroll };
